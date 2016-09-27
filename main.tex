@@ -1,0 +1,155 @@
+\documentclass{beamer}
+
+%\usetheme{Boxes}
+
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{moreverb}
+\usepackage{fancyvrb}
+\usepackage{minted}
+\usepackage{algpseudocode}
+\usepackage{natbib}
+\usepackage{eulervm}
+\usepackage{auto-pst-pdf}
+\usepackage{pst-plot}
+\usepackage{multirow}
+\usepackage{subfigure}
+
+
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+\usetheme{boxes}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize subitem}[square]
+
+\title{
+{\bf Tirer avantage de données auxiliaires et d'interactions utilisateurs afin d'apprendre avec peu de données.} \\
+{\footnotesize \bf Leveraging user-interaction and auxiliary data to learn from small data.}
+}
+\author{Romain Mormont}
+\institute{Unité systèmes et modélisation, \\ Département d'électricité, électronique et informatique, \\ Université de Liège, Belgique}
+\date{\today}  
+
+\newcommand{\todo}[1]{\textcolor{red}{[TODO] #1}}
+
+\definecolor{lightgreen}{rgb}{0.0,0.8,0.0}
+\definecolor{lightblue}{rgb}{0.3,0.8,1.0}
+\definecolor{lightred}{rgb}{0.874,0.180,0.105}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+\newrgbcolor{mygreen}{.00 .5 .00}
+\newrgbcolor{myyellow}{.6 .6 .00}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+
+\newrgbcolor{mygreen}{.00 .5 .00}
+\newcommand{\X}[1]{\textcolor{blue}{#1}}
+\newcommand{\y}[1]{\textcolor{red}{#1}}
+\newcommand{\model}[1]{\textcolor{mygreen}{#1}}
+\newcommand{\loss}[1]{\textcolor{lightblue}{#1}}
+
+\begin{document}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+ % \renewcommand{\inserttotalframenumber}{20}
+
+% Title page ==================================================================
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Contexte}
+	\begin{itemize}
+		\item Le \textbf{machine learning} (ML) a récemment connu plusieurs succès commerciaux et industriels (DeepMind, voitures auto-pilotées Google et Tesla, IBM Watson,...)
+		\item Ces succès sont souvent dûs à deux facteurs: 
+		\begin{itemize}
+			\item \textbf{Abondance de données} (\textit{big data})
+			\item \textbf{Grande puissance de calcul}
+		\end{itemize}
+		\item Ces \textbf{critères sont essentiels pour appliquer la plupart des méthodes de ML} 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Problème}
+	\begin{itemize}
+		\item \textbf{Ces critères ne sont pas toujours remplis}.
+		\item Les données disponibles ne le sont pas toujours quantité suffisantes. On peut alors parler de \textbf{small data} !
+	\end{itemize}
+	\vspace{1cm}
+	\begin{center}
+		\large
+		\textbf{Small data}: "la quantité de données n'est pas grande assez relativement à la tâche à résoudre sans pour autant être petite de manière absolue" 
+	\end{center}
+\end{frame}
+
+\begin{frame}{Applications \textit{small data}}
+	Est-ce que je présente des applications ici, où j'attends le case study ? 
+\end{frame}
+
+\begin{frame}{Objectifs}
+	\begin{center}
+		\large
+		Explorer et développer de nouvelles méthodes applicables aux problèmes \textit{small data}.
+	\end{center}
+	
+	\vspace{0.5cm}
+	Pistes et questions de recherche: 
+	\begin{enumerate}
+		\item Comment \textbf{intégrer l'humain aux procédures d'apprentissage} afin d'en améliorer les performances ?
+		\item Comment \textbf{exploiter des données auxiliaires} disponibles afin d'atteindre le même objectif ? 
+	\end{enumerate}
+\end{frame}
+ 
+\begin{frame}{Question 1: humain dans la boucle ?}
+	
+	TODO: Illustration of the "human-in-the-loop" with diagrams ? 
+	(one with ML expert, one with domaine expert interacting with algo?)
+	
+\end{frame}
+
+\begin{frame}{Question 2: données auxiliaires ?}
+	
+	TODO: Again with an illustration ? Transfert learning, imprecise/precise data, multi-modal images,...
+	
+\end{frame}
+
+\begin{frame}{Cas d'étude}
+	Illustration cytomine \\
+		$\Rightarrow$ rare object detection and categorization in high-resolution tissue images \\
+		$\Rightarrow$ en production peut être utilisé pour collecter du feedback utilisateur \\
+\end{frame}
+
+\begin{frame}{Autres applications (?)}
+ 	Détection de défaut image de pièces ??  \\
+ 	Pepite ?? 
+\end{frame}
+
+\begin{frame}
+\begin{center}
+	Merci pour votre attention ! \\ 
+	Des questions ? 
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Backup slides}
+TODO: \\
+\begin{itemize}
+	\item calendrier, 
+	\item résultats du TFE, 
+	\item applications à moyen ou long terme, 
+	\item publications récentes…
+	\item théorie (ML,...)
+\end{itemize}
+\end{frame}
+\end{document}

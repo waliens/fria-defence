@@ -1,0 +1,8 @@
+*.aux
+*.snm
+*.toc
+*.nav
+*.out
+*.log
+*.synctex.gz
+_minted-main/

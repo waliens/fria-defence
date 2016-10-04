@@ -3,7 +3,7 @@
 %\usetheme{Boxes}
 
 \usepackage[utf8]{inputenc}
-\usepackage[frenchb]{babel}
+\usepackage[british,english]{babel}
 \usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{color}
@@ -12,13 +12,13 @@
 \usepackage{url}
 \usepackage{moreverb}
 \usepackage{fancyvrb}
-\usepackage{minted}
-\usepackage{algpseudocode}
-\usepackage{natbib}
-\usepackage{eulervm}
-\usepackage{auto-pst-pdf}
-\usepackage{pst-plot}
-\usepackage{multirow}
+%\usepackage{minted}
+%\usepackage{algpseudocode}
+%\usepackage{natbib}
+%\usepackage{eulervm}
+%\usepackage{auto-pst-pdf}
+%\usepackage{pst-plot}
+%\usepackage{multirow}
 \usepackage{subfigure}
 
 
@@ -30,12 +30,10 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamertemplate{itemize subitem}[square]
 
-\title{
-{\bf Tirer avantage de données auxiliaires et d'interactions utilisateurs afin d'apprendre avec peu de données.} \\
-{\footnotesize \bf Leveraging user-interaction and auxiliary data to learn from small data.}
-}
+\title{{\bf Leveraging user-interaction and auxiliary data to learn from small data.}}
 \author{Romain Mormont}
-\institute{Unité systèmes et modélisation, \\ Département d'électricité, électronique et informatique, \\ Université de Liège, Belgique}
+\institute{Systems and modeling unit, \\
+Department of EE \& CS, \\ University of Liège, Belgium}
 \date{\today}  
 
 \newcommand{\todo}[1]{\textcolor{red}{[TODO] #1}}
@@ -46,17 +44,16 @@
 \definecolor{gray}{rgb}{0.4,0.4,0.4}
 \definecolor{lightgray}{rgb}{0.8,0.8,0.8}
 \definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
-\newrgbcolor{mygreen}{.00 .5 .00}
-\newrgbcolor{myyellow}{.6 .6 .00}
-
-\DeclareMathOperator*{\argmax}{arg\,max}
+%\newrgbcolor{mygreen}{.00 .5 .00}
+%\newrgbcolor{myyellow}{.6 .6 .00}
 
 
-\newrgbcolor{mygreen}{.00 .5 .00}
-\newcommand{\X}[1]{\textcolor{blue}{#1}}
-\newcommand{\y}[1]{\textcolor{red}{#1}}
-\newcommand{\model}[1]{\textcolor{mygreen}{#1}}
-\newcommand{\loss}[1]{\textcolor{lightblue}{#1}}
+
+%\newrgbcolor{mygreen}{.00 .5 .00}
+%\newcommand{\X}[1]{\textcolor{blue}{#1}}
+%\newcommand{\y}[1]{\textcolor{red}{#1}}
+%\newcommand{\model}[1]{\textcolor{mygreen}{#1}}
+%\newcommand{\loss}[1]{\textcolor{lightblue}{#1}}
 
 \begin{document}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
@@ -68,56 +65,146 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Contexte}
+
+\begin{frame}{Context}
 	\begin{itemize}
-		\item Le \textbf{machine learning} (ML) a récemment connu plusieurs succès commerciaux et industriels (DeepMind, voitures auto-pilotées Google et Tesla, IBM Watson,...)
-		\item Ces succès sont souvent dûs à deux facteurs: 
+		\item \textbf{Machine learning} (ML) has recently gained popularity through several successes (DeepMind, Google and Tesla self-driving cars, IBM Watson,...)
+		\item Those were mostly possible thanks to: 
 		\begin{itemize}
-			\item \textbf{Abondance de données} (\textit{big data})
-			\item \textbf{Grande puissance de calcul}
+			\item \textbf{Plenty of data} (\textit{big data})
+			\item High computational power
 		\end{itemize}
-		\item Ces \textbf{critères sont essentiels pour appliquer la plupart des méthodes de ML} 
+		\item Those criterion are essentials to get the best performances out of common ML methods
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Problème}
+\begin{frame}{Problem}
 	\begin{itemize}
-		\item \textbf{Ces critères ne sont pas toujours remplis}.
-		\item Les données disponibles ne le sont pas toujours quantité suffisantes. On peut alors parler de \textbf{small data} !
+		\item \textbf{In practice, those two criteria are not always met}.
+		\item Especially, useful (i.e. labelled) data can be scarce. One can then talk about \textbf{small data} ! 
 	\end{itemize}
-	\vspace{1cm}
+	\vfill
 	\begin{center}
 		\large
-		\textbf{Small data}: "la quantité de données n'est pas grande assez relativement à la tâche à résoudre sans pour autant être petite de manière absolue" 
+		\textbf{Small data}: "the amount of data is not large enough with respect to the complexity of the task at hands" 
+	\end{center}
+	\vfill
+	\begin{center}
+		\small
+		N.B.: in \textit{small data} settings, the amount of data is not small in absolute terms 
 	\end{center}
 \end{frame}
 
-\begin{frame}{Applications \textit{small data}}
-	Est-ce que je présente des applications ici, où j'attends le case study ? 
+\begin{frame}{Small data: illustration}
+\begin{columns}
+\begin{column}{0.48\textwidth}
+	\footnotesize
+	\center
+		{\small	
+		\textbf{Big data} \\
+		ImageNet\footnotemark
+		}
+	\vfill
+	\flushleft
+		\textit{Dataset}: 
+		\begin{itemize}
+			\item 14M labelled images
+			\item Enough data to learn inter- and intra-class variabilities
+		\end{itemize}
+		
+		\begin{figure}[!h]
+			\subfigure{\includegraphics[scale=0.16]{imagenet/car.jpg}}
+			\subfigure{\includegraphics[scale=0.04]{imagenet/tree.jpg}}
+			\subfigure{\includegraphics[scale=0.0667]{imagenet/goat.jpg}}
+			\subfigure{\includegraphics[scale=0.32]{imagenet/radiator.jpg}}\\
+			\subfigure{\includegraphics[scale=0.0667]{imagenet/car2.jpg}}
+			\subfigure{\includegraphics[scale=0.09]{imagenet/tree2.jpg}}
+			\subfigure{\includegraphics[scale=0.2233]{imagenet/goat2.jpg}}
+			\subfigure{\includegraphics[scale=0.10667]{imagenet/radiator2.jpg}}
+			\caption{Typical images from ImageNet}
+		\end{figure}
+\end{column}
+\hfill
+\begin{column}{0.5\textwidth}  
+	\footnotesize
+	\center
+		{\small		
+		\textbf{Small data} \\
+		Thyroid nodule malignancy
+		}
+	\vfill
+	\flushleft
+		\textit{Dataset}:
+		\begin{itemize}
+			\item 6K labelled images
+			\item Most important objects (i.e. malignant) are rare
+		\end{itemize}
+	
+		\begin{figure}[!h]
+		\subfigure[Healthy]{\includegraphics[scale=0.12]{thyroid/norm.png}}
+		\hfill
+		\subfigure[Malignant]{\includegraphics[scale=0.12]{thyroid/incl.png}}
+		\end{figure}
+\end{column}
+\end{columns}
+\footnotetext[1]{Deng \& al. \textit{ImageNet: A Large-Scale Hierarchical Image Database}. In CVPR09, 2009.}
 \end{frame}
 
 \begin{frame}{Objectifs}
 	\begin{center}
 		\large
-		Explorer et développer de nouvelles méthodes applicables aux problèmes \textit{small data}.
+		Explore and develop new methods adapted to \textit{small data} problems.
 	\end{center}
 	
-	\vspace{0.5cm}
-	Pistes et questions de recherche: 
+	\vfill
+	Tracks and research questions: 
 	\begin{enumerate}
-		\item Comment \textbf{intégrer l'humain aux procédures d'apprentissage} afin d'en améliorer les performances ?
-		\item Comment \textbf{exploiter des données auxiliaires} disponibles afin d'atteindre le même objectif ? 
+		\item How to \textbf{integrate human operators to the learning process} in order to improve its performances ?
+		\item How to \textbf{leverage any available auxiliary data} for reaching the same goal ? 
 	\end{enumerate}
+
+	\vfill
+	Methodology:
+	\begin{itemize}
+		\item Gather data 
+		\item Develop solution 
+		\item Test and improve it on benchmark problems 
+		\item Validate on real problems 
+	\end{itemize}
 \end{frame}
  
-\begin{frame}{Question 1: humain dans la boucle ?}
+\begin{frame}{Question 1: human in the loop ?}
 	
-	TODO: Illustration of the "human-in-the-loop" with diagrams ? 
-	(one with ML expert, one with domaine expert interacting with algo?)
+	From ... 
 	
+	\begin{figure}[h]
+		\includegraphics[scale=0.25]{images/without_expert.png}
+	\end{figure}
+	
+	To ... 
+	
+	\begin{figure}
+		\includegraphics[scale=0.25]{images/with_expert_and_crowd.png}
+	\end{figure}	
 \end{frame}
 
-\begin{frame}{Question 2: données auxiliaires ?}
+\begin{frame}{Question 1: human in the loop ?}
+	State of the art:
+	\begin{itemize}
+		\item Mostly \textbf{active learning} (i.e. smart example labelling)
+		\item Few developments around richer forms of feedback
+	\end{itemize}		
+	\vfill
+	Methodological challenges:
+	\begin{itemize}
+		\item How to \textbf{minimize the number of interaction} ? {\small(the method/system must \textit{ask the right questions})}
+		\item How to \textbf{minimize time between each interaction} ? {\small(the method/system must \textit{be fast and reactive})}
+		\item How to \textbf{integrate the feedbacks} to the learning process ?
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Question 2: auxiliary data ?}
 	
 	TODO: Again with an illustration ? Transfert learning, imprecise/precise data, multi-modal images,...
 	
@@ -129,10 +216,6 @@
 		$\Rightarrow$ en production peut être utilisé pour collecter du feedback utilisateur \\
 \end{frame}
 
-\begin{frame}{Autres applications (?)}
- 	Détection de défaut image de pièces ??  \\
- 	Pepite ?? 
-\end{frame}
 
 \begin{frame}
 \begin{center}
@@ -150,6 +233,7 @@ TODO: \\
 	\item applications à moyen ou long terme, 
 	\item publications récentes…
 	\item théorie (ML,...)
+	\item thyroid whole slide image for example illustration
 \end{itemize}
 \end{frame}
 \end{document}

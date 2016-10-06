@@ -6,6 +6,7 @@
 \usepackage[british,english]{babel}
 \usepackage{verbatim}
 \usepackage{graphicx}
+\usepackage{colortbl}
 \usepackage{color}
 \usepackage{hyperref}
 \usepackage{verbatim}
@@ -18,9 +19,9 @@
 %\usepackage{eulervm}
 %\usepackage{auto-pst-pdf}
 %\usepackage{pst-plot}
-%\usepackage{multirow}
+\usepackage{multirow}
 \usepackage{subfigure}
-
+\usepackage{arydshln}
 
 \hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
 \usetheme{boxes}
@@ -57,7 +58,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 
 \begin{document}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
- % \renewcommand{\inserttotalframenumber}{20}
+\renewcommand{\inserttotalframenumber}{12}
 
 % Title page ==================================================================
 
@@ -159,8 +160,8 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 	\vfill
 	Tracks and research questions: 
 	\begin{enumerate}
-		\item How to \textbf{integrate human operators to the learning process} in order to improve its performances ?
-		\item How to \textbf{leverage any available auxiliary data} for reaching the same goal ? 
+		\item \textit{Interactice machine learnin (iML)} : how to \textbf{integrate human operators to the learning process} in order to improve its performances ?
+		\item \textit{Transfer learning}: how to \textbf{leverage any available auxiliary data} for reaching the same goal ? 
 	\end{enumerate}
 
 	\vfill
@@ -204,31 +205,112 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 
 \end{frame}
 
-\begin{frame}{Question 2: auxiliary data ?}
+\begin{frame}{Question 2: transfer learning ?}
 	
-	TODO: Again with an illustration ? Transfert learning, imprecise/precise data, multi-modal images,...
+	\begin{figure}
+		\includegraphics[scale=0.25]{images/with_expert_and_crowd_and_aux.png}
+	\end{figure}
+	
+	\hfill
+	
+	Methodological challenges:
+	\begin{itemize}
+		\item \textbf{What information should be transferred} to improve performances and avoid negative transfer? 
+		\item \textbf{How to integrate this information} into the methods ? 
+	\end{itemize}
 	
 \end{frame}
 
-\begin{frame}{Cas d'étude}
-	Illustration cytomine \\
-		$\Rightarrow$ rare object detection and categorization in high-resolution tissue images \\
-		$\Rightarrow$ en production peut être utilisé pour collecter du feedback utilisateur \\
+\begin{frame}{Question 2: transfer learning ?}	
+	Apply transfer learning on \textbf{multi-modal images}.
+
+	\begin{figure}
+		\center
+		\includegraphics[scale=0.14]{images/multimodal.png}
+	\end{figure}	
 \end{frame}
 
+\begin{frame}{Case study}
+	\begin{center}
+		\textbf{Rare object detection and categorization in high-resolution tissue images}.
+	\end{center}
+		
+	\begin{figure}[h]
+		\center
+		\includegraphics[scale=0.125]{images/whole-slide-dim.png}
+		\caption{Thyroid nodule malignancy diagnosis}
+	\end{figure}
+	
+	\vfill
+	
+	Related applications:
+	\begin{itemize}
+		\item Defect detection in images of manufactured components 
+		\item Large celestial body detection in astronomy
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Case study: Cytomine}
+	\includegraphics[scale=0.07]{images/cytomine_typo.png} web platform will be used for collecting \textbf{feedback} from experts and from the crowds. \\  
+	\vspace*{0.25cm}
+	\hspace*{-0.75in}\includegraphics[scale=0.22]{images/cytomine.png}
+\end{frame}
 
 \begin{frame}
 \begin{center}
-	Merci pour votre attention ! \\ 
-	Des questions ? 
+	Thank you for your attention! \\ 
+	Any question ? 
 \end{center}
 \end{frame}
 
+\begin{frame}{Work calendar}
+	\footnotesize
+	\begin{table}
+	\hspace*{-0.5cm}
+	\setlength\tabcolsep{3pt} % default value: 6pt
+	\begin{tabular}{|c|r|ccc|cccccccccccc|cccccccccccc|cccccccccccc|}
+		\hline
+		& & \multicolumn{3}{c|}{2016} & \multicolumn{12}{c|}{2017} & \multicolumn{12}{c|}{2018}  & \multicolumn{12}{c|}{2019}  \\
+		\hline	
+		& & \multicolumn{3}{c|}{T4} & \multicolumn{3}{c|}{T1} & \multicolumn{3}{c|}{T2} & \multicolumn{3}{c|}{T3} & \multicolumn{3}{c|}{T4} & \multicolumn{3}{c|}{T1} & \multicolumn{3}{c|}{T2} & \multicolumn{3}{c|}{T3} & \multicolumn{3}{c|}{T4}  & \multicolumn{3}{c|}{T1} & \multicolumn{3}{c|}{T2} & \multicolumn{3}{c|}{T3} & \multicolumn{3}{c|}{T4}\\ 
+		\hline
+		& Setup & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \\
+		\hdashline
+		 \parbox[t]{2mm}{\multirow{3}{*}{\rotatebox[origin=c]{90}{\tiny  Interactive}}} & Active learning & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & & & & & & & & & & & & & & & & & & & & &\\
+		& Error labelling & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & & & & & & & & & & & & & & & \\
+		& Feature relevance & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & & & & & & & & & \\
+		\hdashline
+		 \parbox[t]{2mm}{\multirow{3}{*}{\rotatebox[origin=c]{90}{\tiny Aux. data}}} & Survey \& setup & & & & & & & & & & & & & & & & & & & & & & \cellcolor{black} & & & & & & & & & & & & & & & & & \\
+		& Imprecise  & & & & & & & & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & \\
+		& Multi-modal & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & \\
+		\hdashline
+		& Extension 
+		& & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} \\
+		\hline 
+	\end{tabular}
+
+
+\vfill
+
+	\begin{tabular}{|c|r|cccccccccccc|}
+		\hline
+		& & \multicolumn{12}{c|}{2020}  \\
+		\hline	
+		& & \multicolumn{3}{c|}{T1} & \multicolumn{3}{c|}{T2} & \multicolumn{3}{c|}{T3} & \multicolumn{3}{c|}{T4} \\ 
+		\hline
+		& Extension & \cellcolor{black} & \cellcolor{black} & & & & & & & & &  & \\
+		& Writing & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & \\
+		\hline 
+	\end{tabular}
+
+
+	\end{table}
+\end{frame}
 
 \begin{frame}{Backup slides}
 TODO: \\
 \begin{itemize}
-	\item calendrier, 
 	\item résultats du TFE, 
 	\item applications à moyen ou long terme, 
 	\item publications récentes…

@@ -69,13 +69,14 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 
 \begin{frame}{Context}
 	\begin{itemize}
-		\item \textbf{Machine learning} (ML) has recently gained popularity through several successes (DeepMind, Google and Tesla self-driving cars, IBM Watson,...)
+		\item \textbf{Machine learning} (ML) is about learning input-output models from data 
+		\item It has recently gained popularity through several successes with important media coverage
 		\item Those were mostly possible thanks to: 
 		\begin{itemize}
 			\item \textbf{Plenty of data} (\textit{big data})
 			\item High computational power
 		\end{itemize}
-		\item Those criterion are essentials to get the best performances out of common ML methods
+		\item Those criteria are essential to get the best performance out of common ML methods
 	\end{itemize}
 \end{frame}
 
@@ -92,7 +93,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 	\vfill
 	\begin{center}
 		\small
-		N.B.: in \textit{small data} settings, the amount of data is not small in absolute terms 
+		N.B.: in \textit{small data} settings, the amount of data is not necessarily small in absolute terms 
 	\end{center}
 \end{frame}
 
@@ -151,7 +152,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 \footnotetext[1]{Deng \& al. \textit{ImageNet: A Large-Scale Hierarchical Image Database}. In CVPR09, 2009.}
 \end{frame}
 
-\begin{frame}{Objectifs}
+\begin{frame}{Objectives}
 	\begin{center}
 		\large
 		Explore and develop new methods adapted to \textit{small data} problems.
@@ -160,7 +161,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 	\vfill
 	Tracks and research questions: 
 	\begin{enumerate}
-		\item \textit{Interactice machine learnin (iML)} : how to \textbf{integrate human operators to the learning process} in order to improve its performances ?
+		\item \textit{Interactive machine learning (iML)} : how to \textbf{integrate human operators to the learning process} in order to improve performances of ML methods?
 		\item \textit{Transfer learning}: how to \textbf{leverage any available auxiliary data} for reaching the same goal ? 
 	\end{enumerate}
 
@@ -198,7 +199,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 	\vfill
 	Methodological challenges:
 	\begin{itemize}
-		\item How to \textbf{minimize the number of interaction} ? {\small(the method/system must \textit{ask the right questions})}
+		\item How to \textbf{minimize the number of interactions} ? {\small(the method/system must \textit{ask the right questions})}
 		\item How to \textbf{minimize time between each interaction} ? {\small(the method/system must \textit{be fast and reactive})}
 		\item How to \textbf{integrate the feedbacks} to the learning process ?
 	\end{itemize}
@@ -222,7 +223,12 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 \end{frame}
 
 \begin{frame}{Question 2: transfer learning ?}	
-	Apply transfer learning on \textbf{multi-modal images}.
+	Focus on two settings:
+	
+	\begin{itemize}
+		\item Imprecise measurements 
+		\item Multi-modal images
+	\end{itemize}
 
 	\begin{figure}
 		\center
@@ -252,7 +258,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 \end{frame}
 
 \begin{frame}{Case study: Cytomine}
-	\includegraphics[scale=0.07]{images/cytomine_typo.png} web platform will be used for collecting \textbf{feedback} from experts and from the crowds. \\  
+	\includegraphics[scale=0.07]{images/cytomine_typo.png} \text{ } open-source web platform will be used for collecting \textbf{feedback} from experts and from the crowds. \\  
 	\vspace*{0.25cm}
 	\hspace*{-0.75in}\includegraphics[scale=0.22]{images/cytomine.png}
 \end{frame}
@@ -282,7 +288,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 		& Feature relevance & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & & & & & & & & & \\
 		\hdashline
 		 \parbox[t]{2mm}{\multirow{3}{*}{\rotatebox[origin=c]{90}{\tiny Aux. data}}} & Survey \& setup & & & & & & & & & & & & & & & & & & & & & & \cellcolor{black} & & & & & & & & & & & & & & & & & \\
-		& Imprecise  & & & & & & & & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & \\
+		& Imprecise data & & & & & & & & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & \\
 		& Multi-modal & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & \\
 		\hdashline
 		& Extension 

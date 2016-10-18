@@ -58,7 +58,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 
 \begin{document}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
-\renewcommand{\inserttotalframenumber}{12}
+\renewcommand{\inserttotalframenumber}{11}
 
 % Title page ==================================================================
 
@@ -69,7 +69,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 
 \begin{frame}{Context}
 	\begin{itemize}
-		\item \textbf{Machine learning} (ML) is about learning input-output models from data 
+		\item Supervised \textbf{Machine learning} (ML) is about learning input-output models from data 
 		\item It has recently gained popularity through several successes with important media coverage
 		\item Those were mostly possible thanks to: 
 		\begin{itemize}
@@ -83,7 +83,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 \begin{frame}{Problem}
 	\begin{itemize}
 		\item \textbf{In practice, those two criteria are not always met}.
-		\item Especially, useful (i.e. labelled) data can be scarce. One can then talk about \textbf{small data} ! 
+		\item Especially, data can be scarce. One can then talk about \textbf{small data} ! 
 	\end{itemize}
 	\vfill
 	\begin{center}
@@ -95,6 +95,122 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 		\small
 		N.B.: in \textit{small data} settings, the amount of data is not necessarily small in absolute terms 
 	\end{center}
+\end{frame}
+
+
+\begin{frame}{Case study}
+	\begin{center}
+		\textbf{Rare object detection and categorization in high-resolution tissue images}.
+	\end{center}
+		
+	\begin{figure}[h]
+		\center
+		\caption{Thyroid nodule malignancy diagnosis}
+		\subfigure{\includegraphics[scale=0.125]{images/whole-slide-dim.png}} \\
+		\subfigure[Malignant]{\includegraphics[scale=0.15]{thyroid/incl_centered.png}}
+		\subfigure[Healthy]{\includegraphics[scale=0.15]{thyroid/norm_centered.png}}
+	\end{figure}
+
+	\vfill
+\end{frame}
+
+
+\begin{frame}{Objectives}
+	\begin{center}
+		\large
+		Explore and develop new methods adapted to \textit{small data} problems.
+	\end{center}
+	
+	\vfill
+	Tracks and research questions: 
+	\begin{enumerate}
+		\item \textit{Interactive machine learning (iML)} : how to \textbf{integrate human operators to the learning process} in order to improve performances of ML methods?
+		\item \textit{Transfer learning}: how to \textbf{leverage any available auxiliary data} for reaching the same goal ? 
+	\end{enumerate}
+
+\end{frame}
+ 
+  
+\begin{frame}{Question 1: human in the loop ?}
+	
+	From ... 
+	
+	\begin{figure}[h]
+		\includegraphics[scale=0.30]{images/ml_typical.png}
+	\end{figure}
+	
+
+\end{frame}
+
+\begin{frame}{Question 1: human in the loop ?}
+	
+	To ... 
+	
+	\begin{figure}
+		\includegraphics[scale=0.30]{images/ml_expert_crowds.png}
+	\end{figure}	
+	
+\end{frame}
+
+\begin{frame}{Question 1: human in the loop ?}
+	State of the art:
+	\begin{itemize}
+		\item Mostly \textbf{active learning} (i.e. smart example labelling)
+		\item Few developments around richer forms of feedback
+	\end{itemize}		
+	\vfill
+	Methodological challenges:
+	\begin{itemize}
+		\item How to \textbf{minimize the number of interactions} ? {\small(the method/system must \textit{ask the right questions})}
+		\item How to \textbf{minimize time between each interaction} ? {\small(the method/system must \textit{be fast and reactive})}
+		\item How to \textbf{integrate the feedbacks} to the learning process ?
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Question 2: transfer learning ?}
+	
+	\begin{figure}
+		\includegraphics[scale=0.30]{images/ml_expert_crowds_aux.png}
+	\end{figure}
+	
+	\vfill
+	
+	Methodological challenges:
+	\begin{itemize}
+		\item \textbf{What information should be transferred} to improve performances and avoid negative transfer? 
+		\item \textbf{How to integrate this information} into the methods ? 
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Question 2: transfer learning ?}	
+	Focus on two settings:
+	
+	\begin{itemize}
+		\item Imprecise measurements 
+		\item Multi-modal images
+	\end{itemize}
+
+	\begin{figure}
+		\center
+		\includegraphics[scale=0.14]{images/multimodal.png}
+	\end{figure}	
+\end{frame}
+
+
+\begin{frame}
+	\begin{center}
+	
+		Thank you for your attention! \\ 
+		Any question ? 
+		
+	\end{center}
+	\vfill
+	\begin{figure}
+		\includegraphics[scale=0.30]{images/ml_expert_crowds_aux_uni.png}
+	\end{figure}
+	\vfill
 \end{frame}
 
 \begin{frame}{Small data: illustration}
@@ -152,123 +268,6 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 \footnotetext[1]{Deng \& al. \textit{ImageNet: A Large-Scale Hierarchical Image Database}. In CVPR09, 2009.}
 \end{frame}
 
-\begin{frame}{Objectives}
-	\begin{center}
-		\large
-		Explore and develop new methods adapted to \textit{small data} problems.
-	\end{center}
-	
-	\vfill
-	Tracks and research questions: 
-	\begin{enumerate}
-		\item \textit{Interactive machine learning (iML)} : how to \textbf{integrate human operators to the learning process} in order to improve performances of ML methods?
-		\item \textit{Transfer learning}: how to \textbf{leverage any available auxiliary data} for reaching the same goal ? 
-	\end{enumerate}
-
-	\vfill
-	Methodology:
-	\begin{itemize}
-		\item Gather data 
-		\item Develop solution 
-		\item Test and improve it on benchmark problems 
-		\item Validate on real problems 
-	\end{itemize}
-\end{frame}
- 
-\begin{frame}{Question 1: human in the loop ?}
-	
-	From ... 
-	
-	\begin{figure}[h]
-		\includegraphics[scale=0.25]{images/without_expert.png}
-	\end{figure}
-	
-	To ... 
-	
-	\begin{figure}
-		\includegraphics[scale=0.25]{images/with_expert_and_crowd.png}
-	\end{figure}	
-\end{frame}
-
-\begin{frame}{Question 1: human in the loop ?}
-	State of the art:
-	\begin{itemize}
-		\item Mostly \textbf{active learning} (i.e. smart example labelling)
-		\item Few developments around richer forms of feedback
-	\end{itemize}		
-	\vfill
-	Methodological challenges:
-	\begin{itemize}
-		\item How to \textbf{minimize the number of interactions} ? {\small(the method/system must \textit{ask the right questions})}
-		\item How to \textbf{minimize time between each interaction} ? {\small(the method/system must \textit{be fast and reactive})}
-		\item How to \textbf{integrate the feedbacks} to the learning process ?
-	\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Question 2: transfer learning ?}
-	
-	\begin{figure}
-		\includegraphics[scale=0.25]{images/with_expert_and_crowd_and_aux.png}
-	\end{figure}
-	
-	\hfill
-	
-	Methodological challenges:
-	\begin{itemize}
-		\item \textbf{What information should be transferred} to improve performances and avoid negative transfer? 
-		\item \textbf{How to integrate this information} into the methods ? 
-	\end{itemize}
-	
-\end{frame}
-
-\begin{frame}{Question 2: transfer learning ?}	
-	Focus on two settings:
-	
-	\begin{itemize}
-		\item Imprecise measurements 
-		\item Multi-modal images
-	\end{itemize}
-
-	\begin{figure}
-		\center
-		\includegraphics[scale=0.14]{images/multimodal.png}
-	\end{figure}	
-\end{frame}
-
-\begin{frame}{Case study}
-	\begin{center}
-		\textbf{Rare object detection and categorization in high-resolution tissue images}.
-	\end{center}
-		
-	\begin{figure}[h]
-		\center
-		\includegraphics[scale=0.125]{images/whole-slide-dim.png}
-		\caption{Thyroid nodule malignancy diagnosis}
-	\end{figure}
-	
-	\vfill
-	
-	Related applications:
-	\begin{itemize}
-		\item Defect detection in images of manufactured components 
-		\item Large celestial body detection in astronomy
-	\end{itemize}
-	
-\end{frame}
-
-\begin{frame}{Case study: Cytomine}
-	\includegraphics[scale=0.07]{images/cytomine_typo.png} \text{ } open-source web platform will be used for collecting \textbf{feedback} from experts and from the crowds. \\  
-	\vspace*{0.25cm}
-	\hspace*{-0.75in}\includegraphics[scale=0.22]{images/cytomine.png}
-\end{frame}
-
-\begin{frame}
-\begin{center}
-	Thank you for your attention! \\ 
-	Any question ? 
-\end{center}
-\end{frame}
 
 \begin{frame}{Work calendar}
 	\footnotesize
@@ -314,14 +313,22 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 	\end{table}
 \end{frame}
 
-\begin{frame}{Backup slides}
-TODO: \\
-\begin{itemize}
-	\item résultats du TFE, 
-	\item applications à moyen ou long terme, 
-	\item publications récentes…
-	\item théorie (ML,...)
-	\item thyroid whole slide image for example illustration
-\end{itemize}
+
+\begin{frame}{Case study: Cytomine}
+	\includegraphics[scale=0.07]{images/cytomine_typo.png} \text{ } open-source web platform will be used for collecting \textbf{feedback} from experts and from the crowds. \\  
+	\vspace*{0.25cm}
+	\hspace*{-0.75in}\includegraphics[scale=0.22]{images/cytomine.png}
 \end{frame}
+
+
+\begin{frame}{Master thesis}	
+	\begin{center}
+		\textbf{A workflow for large-scale computer-aided cytology and its applications.}
+	\end{center}		
+	\begin{figure}
+		\center
+		\includegraphics[scale=0.375]{images/workflow_illustration.png}
+	\end{figure}	
+\end{frame}
+
 \end{document}

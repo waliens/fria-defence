@@ -31,7 +31,7 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamertemplate{itemize subitem}[square]
 
-\title{{\bf Leveraging user-interaction and auxiliary data to learn from small data.}}
+\title{{\bf Leveraging user-interaction and auxiliary data to learn from small data}}
 \author{Romain Mormont}
 \institute{Systems and modeling unit, \\
 Department of EE \& CS, \\ University of Liège, Belgium}
@@ -58,7 +58,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 
 \begin{document}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
-\renewcommand{\inserttotalframenumber}{11}
+\renewcommand{\inserttotalframenumber}{12}
 
 % Title page ==================================================================
 
@@ -131,7 +131,7 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 \end{frame}
  
   
-\begin{frame}{Question 1: human in the loop ?}
+\begin{frame}{Typical machine learning}
 	
 	From ... 
 	
@@ -142,17 +142,17 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 
 \end{frame}
 
-\begin{frame}{Question 1: human in the loop ?}
+\begin{frame}{Integrating human(s) and auxiliary data}
 	
 	To ... 
 	
 	\begin{figure}
-		\includegraphics[scale=0.30]{images/ml_expert_crowds.png}
+		\includegraphics[scale=0.30]{images/ml_expert_crowds_aux_all.png}
 	\end{figure}	
 	
 \end{frame}
 
-\begin{frame}{Question 1: human in the loop ?}
+\begin{frame}{Interactive machine learning}
 	State of the art:
 	\begin{itemize}
 		\item Mostly \textbf{active learning} (i.e. smart example labelling)
@@ -168,35 +168,26 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 
 \end{frame}
 
-\begin{frame}{Question 2: transfer learning ?}
-	
-	\begin{figure}
-		\includegraphics[scale=0.30]{images/ml_expert_crowds_aux.png}
-	\end{figure}
-	
-	\vfill
-	
-	Methodological challenges:
-	\begin{itemize}
-		\item \textbf{What information should be transferred} to improve performances and avoid negative transfer? 
-		\item \textbf{How to integrate this information} into the methods ? 
-	\end{itemize}
-	
-\end{frame}
-
-\begin{frame}{Question 2: transfer learning ?}	
-	Focus on two settings:
-	
-	\begin{itemize}
-		\item Imprecise measurements 
-		\item Multi-modal images
-	\end{itemize}
-
+\begin{frame}{Error labelling}
 	\begin{figure}
 		\center
-		\includegraphics[scale=0.14]{images/multimodal.png}
-	\end{figure}	
+		\includegraphics[scale=0.4]{images/error_labelling.png}
+	\end{figure}
 \end{frame}
+
+\begin{frame}{Feature evaluation}
+	\begin{figure}
+		\center
+		\includegraphics[scale=0.4]{images/feature_evaluation.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{A platform ready for user-interaction}
+	\includegraphics[scale=0.07]{images/cytomine_typo.png} \text{ } open-source web platform will be used for collecting \textbf{feedback} from experts and from the crowds. \\  
+	\vspace*{0.25cm}
+	\hspace*{-0.75in}\includegraphics[scale=0.22]{images/cytomine.png}
+\end{frame}
+
 
 
 \begin{frame}
@@ -314,13 +305,6 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 \end{frame}
 
 
-\begin{frame}{Case study: Cytomine}
-	\includegraphics[scale=0.07]{images/cytomine_typo.png} \text{ } open-source web platform will be used for collecting \textbf{feedback} from experts and from the crowds. \\  
-	\vspace*{0.25cm}
-	\hspace*{-0.75in}\includegraphics[scale=0.22]{images/cytomine.png}
-\end{frame}
-
-
 \begin{frame}{Master thesis}	
 	\begin{center}
 		\textbf{A workflow for large-scale computer-aided cytology and its applications.}
@@ -328,6 +312,36 @@ Department of EE \& CS, \\ University of Liège, Belgium}
 	\begin{figure}
 		\center
 		\includegraphics[scale=0.375]{images/workflow_illustration.png}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}{Question 2: transfer learning ?}
+	
+	\begin{figure}
+		\includegraphics[scale=0.30]{images/ml_expert_crowds_aux.png}
+	\end{figure}
+	
+	\vfill
+	
+	Methodological challenges:
+	\begin{itemize}
+		\item \textbf{What information should be transferred} to improve performances and avoid negative transfer? 
+		\item \textbf{How to integrate this information} into the methods ? 
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Question 2: transfer learning ?}	
+	Focus on two settings:
+	
+	\begin{itemize}
+		\item Imprecise measurements 
+		\item Multi-modal images
+	\end{itemize}
+
+	\begin{figure}
+		\center
+		\includegraphics[scale=0.14]{images/multimodal.png}
 	\end{figure}	
 \end{frame}
 
